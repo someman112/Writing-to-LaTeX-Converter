@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styles from './App.module.css';
 import Latex from "react-latex";
-import { fetchResponse } from "./api";
 
 function App() {
   const canvasRef = useRef();
@@ -17,7 +16,7 @@ function App() {
     const context = canvas.getContext("2d");
     context.lineCap = "round";
     context.strokeStyle = "black";
-    context.lineWidth = 6;
+    context.lineWidth = 3;
     contextRef.current = context;
   }, []);
 
@@ -45,21 +44,9 @@ function App() {
     contextRef.current.stroke();
   };
 
-  const resetCanvas = () => {
-    contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height); 
-  };
-
-  const createRequest = async () => {
-    const response = await fetchResponse();
-    parseMessage(response);
-  }
-
-  const parseMessage = (response) => {
-    
-  }
-
   return (
     <div className="App">
+      <h2>ScribbleTeX</h2>
       <canvas
         ref={canvasRef}
         onMouseDown={beginDrawing}
@@ -67,10 +54,15 @@ function App() {
         onMouseUp={stopDrawing}
       />
       <table>
-        <tr><input type="submit" name="process" value="process here" onClick={createRequest} /></tr>
-        <tr><input type="submit" name="process" value="reset" onClick={resetCanvas}/></tr>
+        <tr><input type="submit" name="process" value="process here" /*onclick={handler}*//></tr>
+        <tr><input type="submit" name="process" value="reset" /*onclick={handler}*//></tr>
       </table>
-      <Latex>What is $(3\times 4) \div (5-3)$</Latex>
+      <div className={styles.Latex}>
+        <Latex>What is $(3\times 4) \div (5-3)$$(3\times 4) \div (5-3)$$(3\times 4) \div (5-3)$$(3\times 4) \div (5-3)$$(3\times 4) \div (5-3)$$(3\times 4) \div (5-3)$$(3\times 4) \div (5-3)$$(3\times 4) \div (5-3)$$(3\times 4) \div (5-3)$$(3\times 4) \div (5-3)$</Latex>
+      </div>
+      <p>
+        p tag
+      </p>
     </div>
   );
 }
