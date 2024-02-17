@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styles from './App.module.css';
+import Latex from "react-latex";
 
 function App() {
   const canvasRef = useRef();
@@ -15,7 +16,7 @@ function App() {
     const context = canvas.getContext("2d");
     context.lineCap = "round";
     context.strokeStyle = "black";
-    context.lineWidth = 5;
+    context.lineWidth = 3;
     contextRef.current = context;
   }, []);
 
@@ -24,6 +25,8 @@ function App() {
     const relativeOffset = canvasRef.current.getBoundingClientRect();
     contextRef.current.beginPath();
     contextRef.current.moveTo(x - relativeOffset.left, y - relativeOffset.top);
+    contextRef.current.lineTo(x - relativeOffset.left, y - relativeOffset.top);
+    contextRef.current.stroke();
     setIsDrawing(true);
   };
 
@@ -49,6 +52,11 @@ function App() {
         onMouseMove={draw}
         onMouseUp={stopDrawing}
       />
+      <table>
+        <tr><input type="submit" name="process" value="process here" /*onclick={handler}*//></tr>
+        <tr><input type="submit" name="process" value="reset" /*onclick={handler}*//></tr>
+      </table>
+      <Latex>What is $(3\times 4) \div (5-3)$</Latex>
     </div>
   );
 }
