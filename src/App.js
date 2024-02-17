@@ -16,7 +16,7 @@ function App() {
     const context = canvas.getContext("2d");
     context.lineCap = "round";
     context.strokeStyle = "black";
-    context.lineWidth = 3;
+    context.lineWidth = 6;
     contextRef.current = context;
   }, []);
 
@@ -44,6 +44,10 @@ function App() {
     contextRef.current.stroke();
   };
 
+  const resetCanvas =()=> {
+    contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height); 
+  };
+
   return (
     <div className="App">
       <canvas
@@ -54,7 +58,7 @@ function App() {
       />
       <table>
         <tr><input type="submit" name="process" value="process here" /*onclick={handler}*//></tr>
-        <tr><input type="submit" name="process" value="reset" /*onclick={handler}*//></tr>
+        <tr><input type="submit" name="process" value="reset" onClick={resetCanvas}/></tr>
       </table>
       <Latex>What is $(3\times 4) \div (5-3)$</Latex>
     </div>
