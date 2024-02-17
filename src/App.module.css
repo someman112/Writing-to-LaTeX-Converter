@@ -1,3 +1,7 @@
+/* html {
+  background: #FFA07A;
+} */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +9,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #e0f3eb;
+}
+
+h2 {
+  position: top;
+  top: 0px;
+  left: 0px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);;
+}
+
+canvas {
+  margin-top: 20px;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 7px;
+  margin-bottom: 5px; /* if you modify this, modify table margin bottom too*/
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);;
 }
 
 div {
@@ -14,7 +35,38 @@ div {
   align-items:center;
 }
 
-canvas {
-  margin-top: 20px;
-  border: 1px solid black;
+table {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.Latex {
+  text-align: center;
+  width: 40%;
+}
+
+/* Button Styles */
+input[type=submit] {
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  touch-action: manipulation;
+  margin: 10px
+}
+
+input[type=submit]:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
 }
