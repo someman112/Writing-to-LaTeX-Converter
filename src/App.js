@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from './App.module.css';
 import Latex from "react-latex";
 import { fetchResponse } from "./api";
+import 'katex/dist/katex.min.css';
 
 function App() {
   const canvasRef = useRef();
