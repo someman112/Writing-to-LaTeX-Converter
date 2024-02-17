@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from './App.module.css';
 import Latex from "react-latex";
+import { fetchResponse } from "./api";
 
 function App() {
   const canvasRef = useRef();
@@ -44,9 +45,18 @@ function App() {
     contextRef.current.stroke();
   };
 
-  const resetCanvas =()=> {
+  const resetCanvas = () => {
     contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height); 
   };
+
+  const createRequest = async () => {
+    const response = await fetchResponse();
+    parseMessage(response);
+  }
+
+  const parseMessage = (response) => {
+    
+  }
 
   return (
     <div className="App">
@@ -57,7 +67,7 @@ function App() {
         onMouseUp={stopDrawing}
       />
       <table>
-        <tr><input type="submit" name="process" value="process here" /*onclick={handler}*//></tr>
+        <tr><input type="submit" name="process" value="process here" onClick={createRequest} /></tr>
         <tr><input type="submit" name="process" value="reset" onClick={resetCanvas}/></tr>
       </table>
       <Latex>What is $(3\times 4) \div (5-3)$</Latex>
