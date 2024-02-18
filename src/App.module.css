@@ -48,7 +48,8 @@ canvas {
   margin-top: 20px;
   border: 1px solid white;
   background-color: white;
-  border-radius: 7px;
+  border: 5px solid rgba(0, 0, 30, 0.8);
+  border-radius: 0px; /* PENDING /*
   margin-bottom: 5px; /* if you modify this, modify table margin bottom too*/
   box-shadow: 2px 2px 4px rgba(155, 155, 155, 0.5);;
 }
