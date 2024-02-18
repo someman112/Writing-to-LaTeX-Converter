@@ -87,7 +87,7 @@ function App() {
             onMouseUp={stopDrawing}
         />
         <table>
-          <tr><input type="submit" name="process" value="process here" onClick={createRequest} /></tr>
+          <tr><input type="submit" name="process" value="Convert!" onClick={createRequest} /></tr>
           <tr><input type="submit" name="process" value="reset" onClick={resetCanvas}/></tr>
         </table>
         {
