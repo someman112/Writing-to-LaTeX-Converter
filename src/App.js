@@ -77,7 +77,9 @@ function App() {
 
   const parseMessage = (response) => {
     const reg = /\\\[|\\\]/g;
+    const reg2 = /^```latex|```$/g
     response = response.replace(reg, "");
+    response = response.replace(reg2, "");
 
     if(response.includes("sorry")){
       setLatexContent("$N/A$");
