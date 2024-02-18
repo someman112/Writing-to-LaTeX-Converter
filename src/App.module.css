@@ -45,7 +45,7 @@ h2 {
 }
 
 canvas {
-  margin-top: 20px;
+  margin-top: 5px;
   border: 1px solid white;
   background-color: white;
   border: 5px solid rgba(0, 49, 114, 0.98);
@@ -140,19 +140,44 @@ header {
   margin-top: 10px;
 }
 
+/*.logo {*/
+/*  width: 100px; !* Adjust the width as needed *!*/
+/*  height: auto; !* Maintains aspect ratio *!*/
+/*  z-index: 999; !* Ensures it's above other content *!*/
+/*  filter: drop-shadow(0 0 5px #ffffff); !* Change #00ff00 to the color you want *!*/
+/*  transition: filter 0.5s; !* Change 0.5s to the desired duration *!*/
+/*  margin-left: 20px;*/
+/*}*/
+
+/*.logo:hover{*/
+/*  filter: drop-shadow(0 0 5px #11ddff); !* Change #00ff00 to the color you want *!*/
+/*}*/
+
+
 .logo {
   width: 100px; /* Adjust the width as needed */
   height: auto; /* Maintains aspect ratio */
   z-index: 999; /* Ensures it's above other content */
-  filter: drop-shadow(0 0 5px #ffffff); /* Change #00ff00 to the color you want */
+  filter: drop-shadow(0 0 5px #11ddff); /* Change #ffffff to the color you want */
   transition: filter 0.5s; /* Change 0.5s to the desired duration */
   margin-left: 20px;
 }
 
-.logo:hover{
-  filter: drop-shadow(0 0 5px #11ddff); /* Change #00ff00 to the color you want */
+.logo:hover {
+  animation-name: breathing;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
+@keyframes breathing {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px #11ddff); /* Start and end with white */
+  }
+  50% {
+    filter: drop-shadow(0 0 5px #ffffff); /* Middle with blue */
+  }
+}
 .title{
   filter: drop-shadow(0 0 5px #ffffff); /* Change #00ff00 to the color you want */
   transition: filter 0.5s; /* Change 0.5s to the desired duration */
@@ -160,4 +185,8 @@ header {
 
 .title:hover{
   filter: drop-shadow(0 0 5px #009dff); /* Change #00ff00 to the color you want */
+}
+
+.loader{
+  margin-top: -5px;
 }

@@ -20,7 +20,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [request, setRequest] = useState(false);
   const [eraserColor, setEraserColor] = useState("#ffffff");
-  const [pencilColor, setPencilColor] = useState("#ffffff");
+  const [pencilColor, setPencilColor] = useState("rgb(148,255,243)");
 
 
   useEffect(() => {
@@ -89,7 +89,7 @@ function App() {
     response = response.replace(reg, "");
     response = response.replace(reg2, "");
 
-    if(response.includes("sorry")){
+    if(response.includes("sorry") || (response.includes("cannot") || (response.includes("LaTeX")))){
       setLatexContent("$N/A$");
     }
     else{
@@ -146,9 +146,10 @@ function App() {
         <PulseLoader 
           color="#36d7b7" 
           loading={loading}
-          size={10}  
+          size={10}
+          className={styles.loader}
         />
-        : 
+        :
         request ? <div className={styles.Latex}>
           <div className={styles.LatexOut}>
           <Latex>{latexContent}</Latex>
