@@ -137,6 +137,7 @@ table {
 header {
   display: flex;
   flex-direction: row;
+  margin-top: 10px;
 }
 
 .logo {
