@@ -66,7 +66,7 @@ function App() {
 
   const parseMessage = (response) => {
     console.log(response);
-    setLatexContent(`$$${response}$$`);
+    setLatexContent(`$${response}$`);
 
   }
 
@@ -87,7 +87,7 @@ function App() {
           <Latex>{latexContent}</Latex>
         </div>
         <p>
-          p tag
+          {latexContent}
         </p>
       </div>
   );
