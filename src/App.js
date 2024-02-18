@@ -8,6 +8,8 @@ import { CopyBlock, dracula } from "react-code-blocks";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEraser } from '@fortawesome/free-solid-svg-icons/faEraser';
 import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil';
+import titleImage from './title.png';
+import logoImage from './logo.png'
 
 function App() {
   const canvasRef = useRef();
@@ -112,7 +114,8 @@ function App() {
 
   return (
       <div className="App">
-        <h2>ScribbleTeX</h2>
+        <h2> <img src={titleImage} alt={"title"} className={styles.title}/></h2>
+        <img src={logoImage} alt="Logo" className={styles.logo} />
         <canvas
             ref={canvasRef}
             onMouseDown={beginDrawing}

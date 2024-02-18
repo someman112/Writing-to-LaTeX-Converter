@@ -48,10 +48,10 @@ canvas {
   margin-top: 20px;
   border: 1px solid white;
   background-color: white;
-  border: 5px solid rgba(0, 0, 30, 0.8);
+  border: 5px solid rgba(0, 49, 114, 0.98);
   border-radius: 0px; /* PENDING /*
   margin-bottom: 5px; /* if you modify this, modify table margin bottom too*/
-  box-shadow: 2px 2px 4px rgba(155, 155, 155, 0.5);;
+  box-shadow: 2px 2px 4px rgba(0, 157, 255, 0.5);
 }
 
 div {
@@ -132,4 +132,30 @@ table {
 
 .buttonIcon:hover {
   background-color: rgba(37, 146, 255, 0.4);
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 975px;
+  width: 100px; /* Adjust the width as needed */
+  height: auto; /* Maintains aspect ratio */
+  z-index: 999; /* Ensures it's above other content */
+  filter: drop-shadow(0 0 5px #ffffff); /* Change #00ff00 to the color you want */
+  transition: filter 0.5s; /* Change 0.5s to the desired duration */
+
+
+}
+
+.logo:hover{
+  filter: drop-shadow(0 0 5px #11ddff); /* Change #00ff00 to the color you want */
+}
+
+.title{
+  filter: drop-shadow(0 0 5px #ffffff); /* Change #00ff00 to the color you want */
+  transition: filter 0.5s; /* Change 0.5s to the desired duration */
+}
+
+.title:hover{
+  filter: drop-shadow(0 0 5px #009dff); /* Change #00ff00 to the color you want */
 }
