@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 
-const openai = new OpenAI({ apiKey: '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', dangerouslyAllowBrowser: true });
+const openai = new OpenAI({ apiKey: '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\n', dangerouslyAllowBrowser: true });
 
 export const fetchResponse = async (image_data) => {
     const headers = {
