@@ -114,8 +114,10 @@ function App() {
 
   return (
       <div className="App">
-        <h2> <img src={titleImage} alt={"title"} className={styles.title}/></h2>
-        <img src={logoImage} alt="Logo" className={styles.logo} />
+        <header>
+          <h2> <img src={titleImage} alt={"title"} className={styles.title}/></h2>
+          <img src={logoImage} alt="Logo" className={styles.logo} />
+        </header>
         <canvas
             ref={canvasRef}
             onMouseDown={beginDrawing}

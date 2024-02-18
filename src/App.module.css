@@ -134,17 +134,18 @@ table {
   background-color: rgba(37, 146, 255, 0.4);
 }
 
+header {
+  display: flex;
+  flex-direction: row;
+}
+
 .logo {
-  position: absolute;
-  top: 10px;
-  left: 975px;
   width: 100px; /* Adjust the width as needed */
   height: auto; /* Maintains aspect ratio */
   z-index: 999; /* Ensures it's above other content */
   filter: drop-shadow(0 0 5px #ffffff); /* Change #00ff00 to the color you want */
   transition: filter 0.5s; /* Change 0.5s to the desired duration */
-
-
+  margin-left: 20px;
 }
 
 .logo:hover{
