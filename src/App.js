@@ -4,6 +4,7 @@ import Latex from "react-latex";
 import { fetchResponse } from "./api";
 import 'katex/dist/katex.min.css';
 import { PulseLoader } from "react-spinners";
+import { CopyBlock, dracula } from "react-code-blocks";
 
 function App() {
   const canvasRef = useRef();
@@ -12,6 +13,7 @@ function App() {
   const [isDrawing, setIsDrawing] = useState(false);
   const [latexContent, setLatexContent] = useState("");
   const [loading, setLoading] = useState(false);
+  const [request, setRequest] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -56,10 +58,12 @@ function App() {
     contextRef.fillStyle = 'white';
     contextRef.current.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height);
     setLatexContent("");
+    setRequest(false);
   };
 
   const createRequest = async () => {
     setLoading(true);
+    setRequest(true);
     try {
       const data = canvasRef.current.toDataURL("image/png", 1.0);
       const image_data = data.split(",")[1];
@@ -88,7 +92,7 @@ function App() {
         />
         <table>
           <tr><input type="submit" name="process" value="Convert!" onClick={createRequest} /></tr>
-          <tr><input type="submit" name="process" value="reset" onClick={resetCanvas}/></tr>
+          <tr><input type="submit" name="process" value="Reset" onClick={resetCanvas}/></tr>
         </table>
         {
         loading ? 
@@ -98,12 +102,16 @@ function App() {
           size={10}  
         />
         : 
-        <div className={styles.Latex}>
+        request ? <div className={styles.Latex}>
           <Latex>{latexContent}</Latex>
-          <p>
-            {latexContent}
-          </p>
-        </div>
+          <CopyBlock
+            language="go"
+            text={latexContent}
+            codeBlock
+            theme={dracula}
+            showLineNumbers={false}
+          />
+        </div> : ""
         }
       </div>
   );
