@@ -5,6 +5,9 @@ import { fetchResponse } from "./api";
 import 'katex/dist/katex.min.css';
 import { PulseLoader } from "react-spinners";
 import { CopyBlock, dracula } from "react-code-blocks";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEraser } from '@fortawesome/free-solid-svg-icons/faEraser';
+import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil';
 
 function App() {
   const canvasRef = useRef();
@@ -99,10 +102,19 @@ function App() {
             onMouseMove={draw}
             onMouseUp={stopDrawing}
         />
+        <div className="buttons">
+
+        </div>
         <table>
           <tr><input type="submit" name="process" value="Convert!" onClick={createRequest} /></tr>
           <tr><input type="submit" name="process" value="Reset" onClick={resetCanvas}/></tr>
+          <tr className={styles.buttonContainer}>
+            <td className={styles.buttonIcon}><FontAwesomeIcon icon={faEraser} style={{color: "#ffffff",}} /></td>
+            <td className={styles.buttonIcon}><FontAwesomeIcon icon={faPencil} style={{color: "#ffffff",}} /></td>
+          </tr>
         </table>
+
+
         {
         loading ? 
         <PulseLoader 
@@ -122,6 +134,7 @@ function App() {
             codeBlock
             theme={dracula}
             showLineNumbers={false}
+            customStyle={{ fontSize: '15px', padding: '27.5px'}}
           />
           </div>
         </div> : ""
