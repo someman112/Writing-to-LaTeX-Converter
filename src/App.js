@@ -126,11 +126,11 @@ function App() {
           <tr><input type="submit" name="process" value="Convert!" onClick={createRequest} /></tr>
           <tr><input type="submit" name="process" value="Reset" onClick={resetCanvas}/></tr>
           <tr className={styles.buttonContainer}>
-            <td className={styles.buttonIcon}>
-              <FontAwesomeIcon id="eraser" icon={faEraser} style={{ color: eraserColor }} onClick={eraser} />
+            <td className={styles.buttonIcon} onClick={eraser}>
+              <FontAwesomeIcon id="eraser" icon={faEraser} style={{ color: eraserColor }}  />
             </td>
-            <td className={styles.buttonIcon}>
-              <FontAwesomeIcon id="pencil" icon={faPencil} style={{ color: pencilColor }} onClick={pencil} />
+            <td className={styles.buttonIcon} onClick={pencil}>
+              <FontAwesomeIcon id="pencil" icon={faPencil} style={{ color: pencilColor }}  />
             </td>
           </tr>
         </table>
