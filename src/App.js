@@ -89,7 +89,7 @@ function App() {
     response = response.replace(reg, "");
     response = response.replace(reg2, "");
 
-    if(response.includes("sorry") || (response.includes("cannot") || (response.includes("LaTeX")))){
+    if(response.includes("sorry") || (response.includes("cannot") || (response.includes("LaTeX")) || (response.includes("unfortunately")))){
       setLatexContent("$N/A$");
     }
     else{
