@@ -113,7 +113,7 @@ function App() {
         : 
         request ? <div className={styles.Latex}>
           <div className={styles.LatexOut}>
-          <Latex >{latexContent}</Latex>
+          <Latex>{latexContent}</Latex>
           </div>
           <div className={styles.LatexCode}>
           <CopyBlock
