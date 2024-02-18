@@ -112,7 +112,10 @@ function App() {
         />
         : 
         request ? <div className={styles.Latex}>
-          <Latex>{latexContent}</Latex>
+          <div className={styles.LatexOut}>
+          <Latex >{latexContent}</Latex>
+          </div>
+          <div className={styles.LatexCode}>
           <CopyBlock
             language="go"
             text={latexContent}
@@ -120,6 +123,7 @@ function App() {
             theme={dracula}
             showLineNumbers={false}
           />
+          </div>
         </div> : ""
         }
       </div>
