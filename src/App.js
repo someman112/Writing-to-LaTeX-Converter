@@ -3,6 +3,7 @@ import styles from './App.module.css';
 import Latex from "react-latex";
 import { fetchResponse } from "./api";
 import 'katex/dist/katex.min.css';
+import { PulseLoader } from "react-spinners";
 
 function App() {
   const canvasRef = useRef();
@@ -10,8 +11,7 @@ function App() {
 
   const [isDrawing, setIsDrawing] = useState(false);
   const [latexContent, setLatexContent] = useState("");
-
-
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -55,13 +55,20 @@ function App() {
     // contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
     contextRef.fillStyle = 'white';
     contextRef.current.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+    setLatexContent("");
   };
 
   const createRequest = async () => {
-    const data = canvasRef.current.toDataURL("image/png", 1.0);
-    const image_data = data.split(",")[1];
-    const response = await fetchResponse(image_data);
-    parseMessage(response);
+    setLoading(true);
+    try {
+      const data = canvasRef.current.toDataURL("image/png", 1.0);
+      const image_data = data.split(",")[1];
+      const response = await fetchResponse(image_data);
+      parseMessage(response);
+    } finally {
+      setLoading(false);
+    }
+
   }
 
   const parseMessage = (response) => {
@@ -83,12 +90,21 @@ function App() {
           <tr><input type="submit" name="process" value="process here" onClick={createRequest} /></tr>
           <tr><input type="submit" name="process" value="reset" onClick={resetCanvas}/></tr>
         </table>
+        {
+        loading ? 
+        <PulseLoader 
+          color="#36d7b7" 
+          loading={loading}
+          size={10}  
+        />
+        : 
         <div className={styles.Latex}>
           <Latex>{latexContent}</Latex>
+          <p>
+            {latexContent}
+          </p>
         </div>
-        <p>
-          {latexContent}
-        </p>
+        }
       </div>
   );
 }
