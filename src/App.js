@@ -17,6 +17,9 @@ function App() {
   const [latexContent, setLatexContent] = useState("");
   const [loading, setLoading] = useState(false);
   const [request, setRequest] = useState(false);
+  const [eraserColor, setEraserColor] = useState("#ffffff");
+  const [pencilColor, setPencilColor] = useState("#ffffff");
+
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -93,6 +96,20 @@ function App() {
 
   }
 
+  const eraser = () => {
+    setEraserColor("rgb(148,255,243)");
+    setPencilColor("rgb(255,255,255)");
+    contextRef.current.strokeStyle = "white";
+    contextRef.current.lineWidth = 11;
+  }
+
+  const pencil = () => {
+    setEraserColor("rgb(255,255,255)");
+    setPencilColor("rgb(148,255,243)");
+    contextRef.current.strokeStyle = "black";
+    contextRef.current.lineWidth = 6;
+  }
+
   return (
       <div className="App">
         <h2>ScribbleTeX</h2>
@@ -109,8 +126,12 @@ function App() {
           <tr><input type="submit" name="process" value="Convert!" onClick={createRequest} /></tr>
           <tr><input type="submit" name="process" value="Reset" onClick={resetCanvas}/></tr>
           <tr className={styles.buttonContainer}>
-            <td className={styles.buttonIcon}><FontAwesomeIcon icon={faEraser} style={{color: "#ffffff",}} /></td>
-            <td className={styles.buttonIcon}><FontAwesomeIcon icon={faPencil} style={{color: "#ffffff",}} /></td>
+            <td className={styles.buttonIcon}>
+              <FontAwesomeIcon id="eraser" icon={faEraser} style={{ color: eraserColor }} onClick={eraser} />
+            </td>
+            <td className={styles.buttonIcon}>
+              <FontAwesomeIcon id="pencil" icon={faPencil} style={{ color: pencilColor }} onClick={pencil} />
+            </td>
           </tr>
         </table>
 
